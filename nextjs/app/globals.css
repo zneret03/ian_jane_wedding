@@ -110,8 +110,7 @@ p {
   background-position: top center;
   background-size: 100% 0%;
   background-image: linear-gradient(var(--burgundy), var(--burgundy));
-  transition: background-size 0.38s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.28s ease, border-color 0.38s ease;
+  transition: background-size 0.38s cubic-bezier(0.4, 0, 0.2, 1), color 0.28s ease;
 }
 
 .btn--outline:hover {
@@ -256,9 +255,14 @@ p {
 
 /* ---------- story ---------- */
 
-.story .two-col {
-  /* Chapter one runs long: top-align so the pile stays put as the copy grows. */
-  align-items: start;
+.story__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #ded6c6;
+}
+
+.story__photo img {
+  object-fit: cover;
 }
 
 .story h2 {
@@ -268,146 +272,13 @@ p {
   color: var(--navy);
 }
 
-/* The rotated prints reach past the pile, so the column keeps room for them. */
-
-.story__pile {
-  padding: 0 clamp(28px, 8vw, 36px) 26px;
-}
-
-.stack {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-  margin: 0 auto;
-  aspect-ratio: 4 / 5;
-  cursor: pointer;
-  user-select: none;
-}
-
-.stack:focus-visible {
-  outline: 2px solid var(--ochre);
-  outline-offset: 10px;
-}
-
-.stack__card {
-  position: absolute;
-  inset: 0;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 11px 11px 44px;
-  background: var(--paper);
-  box-shadow: 0 8px 22px rgba(35, 45, 57, 0.15);
-  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow 0.55s ease, filter 0.55s ease;
-}
-
-.stack__card.is-front {
-  box-shadow: 0 18px 46px rgba(35, 45, 57, 0.26);
-}
-
-.stack__photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: #ded6c6;
-}
-
-.stack__caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 13px;
-  text-align: center;
-  font-size: 16px;
-  font-style: italic;
-  color: #906560;
-  transition: opacity 0.45s ease;
-}
-
-.story__count {
-  margin-top: 26px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 10px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--ochre);
-}
-
-.story__rule {
-  flex: 1;
-  height: 1px;
-  background: rgba(141, 99, 57, 0.3);
-}
-
-.story__title {
-  margin: 18px 0 0;
-  font-size: 26px;
-  line-height: 1.2;
-  color: var(--burgundy);
-}
-
-.story__text {
-  margin-top: 14px;
-  min-height: 5.9em;
+.story p {
+  margin-top: 20px;
   font-size: 15px;
   line-height: 1.95;
   color: var(--rust);
   max-width: 46ch;
   text-wrap: pretty;
-}
-
-.story__dots {
-  margin-top: 26px;
-  display: flex;
-  gap: 10px;
-}
-
-.story__dot {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(141, 99, 57, 0.35);
-  cursor: pointer;
-  transition: width 0.35s ease, background 0.35s ease;
-}
-
-.story__dot.is-on {
-  width: 24px;
-  background: var(--burgundy);
-}
-
-.story__dot:focus-visible {
-  outline: 2px solid var(--ochre);
-  outline-offset: 3px;
-}
-
-.story__actions {
-  margin-top: 28px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px;
-}
-
-.story__next {
-  margin-top: 0;
-  padding: 14px 30px;
-  border-color: rgba(79, 36, 39, 0.45);
-  background-color: transparent;
-  color: var(--burgundy);
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.story__hint {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: var(--rose);
 }
 
 /* ---------- schedule ---------- */
@@ -639,9 +510,5 @@ p {
   .print,
   .print:hover {
     transform: none;
-  }
-  .stack__card,
-  .stack__caption {
-    transition: none;
   }
 }

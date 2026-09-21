@@ -34,12 +34,11 @@ Everything is in `public/images/`. Replace a file in place and keep the name:
 | File | Where it appears |
 | --- | --- |
 | `save-the-date.jpg` | Floating invitation card in the hero |
-| `hero-left.png`, `hero-right.png` | Photo band behind the card — the venue, then the couple |
+| `hero-left.jpg`, `hero-right.jpg` | Photo band behind the card |
+| `story.jpg` | Our story section |
 | `gallery-1…4.jpg` | "Us, lately" instax prints |
-| `how-we-met.jpg`, `becoming-us.jpg`, `the-question.jpg`, `she-said-yes.jpg` | The four "How we got here" chapters, in that order |
 
-To swap a story photo, replace the file in place, or change `src` and `alt` on
-that chapter in `story.chapters`.
+`hero-left`, `hero-right` and `story` currently reuse gallery photos as stand-ins — swap them for dedicated shots when you have them.
 
 ## Deploying
 
