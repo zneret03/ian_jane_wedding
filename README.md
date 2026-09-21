@@ -37,9 +37,24 @@ Everything is in `public/images/`. Replace a file in place and keep the name:
 | `hero-left.png`, `hero-right.png` | Photo band behind the card — the venue, then the couple |
 | `gallery-1…4.jpg` | "Us, lately" instax prints |
 | `how-we-met.jpg`, `becoming-us.jpg`, `the-question.jpg`, `she-said-yes.jpg` | The four "How we got here" chapters, in that order |
+| `og-hero.jpg` | Link preview on Facebook, Messenger, iMessage — a 1200×630 snapshot of the hero |
 
 To swap a story photo, replace the file in place, or change `src` and `alt` on
 that chapter in `story.chapters`.
+
+## Link previews
+
+`app/layout.jsx` sets `metadataBase` to the live URL, which is what makes the
+Open Graph tags absolute — Facebook cannot read a relative or `localhost`
+image. If the site moves to another domain, change `SITE_URL` there.
+
+`og-hero.jpg` is a screenshot of the hero at 1200×630. Redo it whenever the
+hero changes: `npm run build`, serve `./out`, and grab the top of the page
+scrolled just far enough to fit the JANE & IAN line.
+
+Facebook caches previews hard. After deploying, paste the URL into the
+[Sharing Debugger](https://developers.facebook.com/tools/debug/) and hit
+**Scrape Again**, or the old preview will keep showing.
 
 ## Deploying
 
